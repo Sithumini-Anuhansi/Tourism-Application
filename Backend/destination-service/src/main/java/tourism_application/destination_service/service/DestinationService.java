@@ -45,6 +45,10 @@ public class DestinationService
         existing.setDescription(updatedData.getDescription());
         existing.setLocation(updatedData.getLocation());
         existing.setCategory(updatedData.getCategory());
+<<<<<<< HEAD
+=======
+        existing.setAvgPrice(updatedData.getAvgPrice());
+>>>>>>> a40f62b6b26da60b346839080a58d59df6360986
         existing.setImageUrl(updatedData.getImageUrl());
 
         return repository.save(existing);

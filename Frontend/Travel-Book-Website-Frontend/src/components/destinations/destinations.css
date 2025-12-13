@@ -1,14 +1,25 @@
+<<<<<<< HEAD
 ﻿.destinations-page {
     padding: 90px 20px 20px; /* Push content below fixed header */
+=======
+.destinations-page {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 90px 20px 20px; /* FIX: Push content below fixed header */
+>>>>>>> a40f62b6b26da60b346839080a58d59df6360986
     font-family: Arial, sans-serif;
     text-align: center;
 }
 
+<<<<<<< HEAD
 /* CATEGORY SECTION SPACING */
+=======
+>>>>>>> a40f62b6b26da60b346839080a58d59df6360986
 .category-section {
     margin-top: 40px;
 }
 
+<<<<<<< HEAD
     /* ★★★★★ CATEGORY HEADING (UPDATED) ★★★★★ */
     .category-section h2 {
         font-size: 30px;
@@ -52,6 +63,8 @@
         }
 
 /* DESTINATION GRID */
+=======
+>>>>>>> a40f62b6b26da60b346839080a58d59df6360986
 .destination-cards {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -59,7 +72,10 @@
     margin-top: 20px;
 }
 
+<<<<<<< HEAD
 /* CARD DESIGN */
+=======
+>>>>>>> a40f62b6b26da60b346839080a58d59df6360986
 .destination-card {
     border-radius: 10px;
     overflow: hidden;
@@ -79,7 +95,10 @@
         object-fit: cover;
     }
 
+<<<<<<< HEAD
 /* CARD INFO */
+=======
+>>>>>>> a40f62b6b26da60b346839080a58d59df6360986
 .destination-info {
     padding: 15px;
     text-align: left;
@@ -100,10 +119,14 @@
         margin-top: 5px;
     }
 
+<<<<<<< HEAD
 /* TEXT MESSAGES */
 .loading,
 .error,
 .no-results {
+=======
+.loading, .error, .no-results {
+>>>>>>> a40f62b6b26da60b346839080a58d59df6360986
     font-size: 1rem;
     color: #555;
     margin-top: 10px;

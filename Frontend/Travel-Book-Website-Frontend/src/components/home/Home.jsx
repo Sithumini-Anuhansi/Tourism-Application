@@ -7,6 +7,7 @@ import Price from "./price/Price"
 import Recent from "./recent/Recent"
 import Team from "./team/Team"
 
+<<<<<<< HEAD
 import "./home.css"
 
 const Home = () => {
@@ -35,6 +36,12 @@ const Home = () => {
         </button>
     </form>
 
+=======
+const Home = () => {
+  return (
+    <>
+      <Hero />
+>>>>>>> a40f62b6b26da60b346839080a58d59df6360986
       <Location />
       <Price />
       <Recent />
