@@ -17,10 +17,7 @@ public class Destination
 
     private String location;
     private String category;
-<<<<<<< HEAD
-=======
     private Double avgPrice;
->>>>>>> a40f62b6b26da60b346839080a58d59df6360986
     private String imageUrl;
 
     public Destination() {}
@@ -41,12 +38,9 @@ public class Destination
     public String getCategory() { return category; }
     public void setCategory(String category) { this.category = category; }
 
-<<<<<<< HEAD
-=======
     public Double getAvgPrice() { return avgPrice; }
     public void setAvgPrice(Double avgPrice) { this.avgPrice = avgPrice; }
 
->>>>>>> a40f62b6b26da60b346839080a58d59df6360986
     public String getImageUrl() { return imageUrl; }
     public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
 }

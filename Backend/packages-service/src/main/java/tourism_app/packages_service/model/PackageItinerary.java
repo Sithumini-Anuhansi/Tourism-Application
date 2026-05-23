@@ -1,6 +1,6 @@
 package tourism_app.packages_service.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore; // import this
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -18,7 +18,7 @@ public class PackageItinerary {
 
     @ManyToOne
     @JoinColumn(name = "package_id")
-    @JsonIgnore // <-- add this line
+    @JsonIgnore //not read through api requests
     private Package pkg;
 
     // getters and setters

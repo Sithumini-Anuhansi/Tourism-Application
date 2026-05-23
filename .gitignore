@@ -20,5 +20,8 @@ target/
 .DS_Store
 Thumbs.db
 
-# Env
+# Env (secrets – never commit)
 .env
+.env.local
+.env.*.local
+Backend/.env

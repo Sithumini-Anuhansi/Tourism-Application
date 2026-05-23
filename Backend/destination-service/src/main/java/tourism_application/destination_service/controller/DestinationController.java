@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/destinations")
-@CrossOrigin(origins = "*") // enable CORS for frontend
+@CrossOrigin(origins = "http://localhost:3000")
 public class DestinationController
 {
     private final DestinationService service;
@@ -49,26 +49,5 @@ public class DestinationController
                         d -> d.getCategory() != null ? d.getCategory() : "Uncategorized"
                 ));
         return ResponseEntity.ok(grouped);
-    }
-
-    // Create new destination
-    @PostMapping
-    public ResponseEntity<Destination> create(@RequestBody Destination d) {
-        Destination created = service.create(d);
-        return ResponseEntity.ok(created);
-    }
-
-    // Update destination
-    @PutMapping("/{id}")
-    public ResponseEntity<Destination> update(@PathVariable Long id, @RequestBody Destination d) {
-        Destination updated = service.update(id, d);
-        return ResponseEntity.ok(updated);
-    }
-
-    // Delete destination
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
-        service.delete(id);
-        return ResponseEntity.noContent().build();
     }
 }

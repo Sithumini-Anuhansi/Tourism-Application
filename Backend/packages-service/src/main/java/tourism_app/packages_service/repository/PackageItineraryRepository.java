@@ -8,5 +8,6 @@ import java.util.List;
 
 @Repository
 public interface PackageItineraryRepository extends JpaRepository<PackageItinerary, Long> {
-    List<PackageItinerary> findByPkgPackageIdOrderByDayNumber(Long packageId);
+    // Fetch all itinerary items for a specific package
+    List<PackageItinerary> findByPkg_PackageId(Long packageId);
 }
