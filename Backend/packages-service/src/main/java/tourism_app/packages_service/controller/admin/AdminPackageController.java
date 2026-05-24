@@ -29,13 +29,13 @@ public class AdminPackageController {
 
     // ADD PACKAGE
     @PostMapping
-    public Package addPackage(@RequestBody Package travelPackage) {
+    public Package addPackage(@Valid @RequestBody Package travelPackage) {
         return packageRepository.save(travelPackage);
     }
 
     // UPDATE PACKAGE
     @PutMapping("/{id}")
-    public Package updatePackage(@PathVariable Long id, @RequestBody Package updatedPackage) {
+    public Package updatePackage(@PathVariable Long id, @Valid @RequestBody Package updatedPackage) {
         Package travelPackage = packageRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Package not found"));
 

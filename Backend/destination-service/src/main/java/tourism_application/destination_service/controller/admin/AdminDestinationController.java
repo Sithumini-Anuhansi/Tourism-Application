@@ -29,13 +29,13 @@ public class AdminDestinationController {
 
     // ADD DESTINATION
     @PostMapping
-    public Destination addDestination(@RequestBody Destination destination) {
+    public Destination addDestination(@Valid @RequestBody Destination destination) {
         return destinationRepository.save(destination);
     }
 
     // UPDATE DESTINATION
     @PutMapping("/{id}")
-    public Destination updateDestination(@PathVariable Long id, @RequestBody Destination updatedDestination) {
+    public Destination updateDestination(@PathVariable Long id, @Valid @RequestBody Destination updatedDestination) {
         Destination destination = destinationRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Destination not found"));
 

@@ -29,7 +29,7 @@ public class AdminBookingController {
 
     // UPDATE BOOKING
     @PutMapping("/{id}")
-    public Booking updateBooking(@PathVariable Long id, @RequestBody Booking updatedBooking) {
+    public Booking updateBooking(@PathVariable Long id, @Valid @RequestBody Booking updatedBooking) {
         Booking booking = bookingRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Booking not found"));
 

@@ -6,6 +6,7 @@ import tourism_app.auth_service.util.JwtUtil;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+import jakarta.validation.Valid;
 import java.util.Map;
 
 @RestController
@@ -23,7 +24,7 @@ public class AuthController
     }
 
     @PostMapping("/register")
-    public ResponseEntity<?> register(@RequestBody Map<String, String> body) {
+    public ResponseEntity<?> register(@Valid @RequestBody Map<String, String> body) {
         String email = body.get("email");
         String password = body.get("password");
         String name = body.get("name");
@@ -53,7 +54,7 @@ public class AuthController
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody Map<String, String> body) {
+    public ResponseEntity<?> login(@Valid @RequestBody Map<String, String> body) {
         String email = body.get("email");
         String password = body.get("password");
 

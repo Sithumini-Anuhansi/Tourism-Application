@@ -1,6 +1,7 @@
 package tourism_application.destination_service.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "destinations")
@@ -10,13 +11,18 @@ public class Destination
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "Destination name cannot be empty")
     private String name;
 
     @Column(length = 4000)
     private String description;
 
+    @NotBlank(message = "Location cannot be empty")
     private String location;
+    
+    @NotBlank(message = "Category cannot be empty")
     private String category;
+    
     private Double avgPrice;
     private String imageUrl;
 

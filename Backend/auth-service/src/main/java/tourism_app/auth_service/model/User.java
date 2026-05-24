@@ -1,6 +1,9 @@
 package tourism_app.auth_service.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import java.time.LocalDateTime;
 
 @Entity
@@ -10,12 +13,23 @@ public class User
     //variables
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
     @Column(unique=true, nullable=false)
+    @NotBlank(message = "Email cannot be empty")
+    @Email(message = "Email should be valid")
     private String email;
+    
+    @NotBlank(message = "Password cannot be empty")
     private String passwordHash;
+    
+    @NotBlank(message = "Name cannot be empty")
     private String name;
+    
     private String role = "USER";
+    
+    @Pattern(regexp = "^\\+?[0-9]{10,15}$|^", message = "Invalid phone number format")
     private String phone;
+    
     private LocalDateTime createdAt = LocalDateTime.now();
 
     // getters and setters

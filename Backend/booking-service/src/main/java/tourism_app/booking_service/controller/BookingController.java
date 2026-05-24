@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.*;
 import tourism_app.booking_service.dto.BookingRequest;
 import tourism_app.booking_service.model.Booking;
 import tourism_app.booking_service.service.BookingService;
+import jakarta.validation.Valid;
 
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class BookingController {
     }
 
     @PostMapping
-    public Booking createBooking(@RequestBody BookingRequest request) {
+    public Booking createBooking(@Valid @RequestBody BookingRequest request) {
         return bookingService.createBooking(request);
     }
 
@@ -56,7 +57,7 @@ public class BookingController {
     }
 
     @PutMapping("/{id}")
-    public Booking updateBooking(@PathVariable Long id, @RequestBody BookingRequest request) {
+    public Booking updateBooking(@PathVariable Long id, @Valid @RequestBody BookingRequest request) {
         return bookingService.updateBooking(id, request);
     }
 

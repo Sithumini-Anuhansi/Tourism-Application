@@ -1,6 +1,8 @@
 package tourism_app.packages_service.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
 import java.util.List;
 
 @Entity
@@ -11,15 +13,27 @@ public class Package
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long packageId;
 
+    @NotBlank(message = "Package title cannot be empty")
     private String title;
 
-    private String category; // NEW: package category
+    @NotBlank(message = "Category cannot be empty")
+    private String category;
 
+    @NotBlank(message = "Duration cannot be empty")
     private String duration;
+    
+    @NotBlank(message = "Best for field cannot be empty")
     private String bestFor;
+    
+    @NotBlank(message = "Main destinations cannot be empty")
     private String mainDestinations;
+    
+    @Positive(message = "Price must be greater than 0")
     private Double price;
+    
+    @Positive(message = "People count must be greater than 0")
     private Integer peopleCount;
+    
     private String imageUrl;
 
     @OneToMany(mappedBy = "pkg", cascade = CascadeType.ALL)

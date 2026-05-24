@@ -1,5 +1,9 @@
 package tourism_app.booking_service.dto;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Positive;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -8,14 +12,34 @@ public class BookingRequest {
     private Long bookingId;
     private Long userId;
     private String bookingType;
+    
+    @NotBlank(message = "Package title cannot be empty")
     private String packageTitle;
+    
+    @NotBlank(message = "Destination cannot be empty")
     private String destination;
+    
+    @NotNull(message = "Travel date is required")
     private LocalDate travelDate;
+    
+    @NotNull(message = "Number of people is required")
+    @Positive(message = "Number of people must be greater than 0")
     private Integer people;
+    
+    @NotNull(message = "Number of days is required")
+    @Positive(message = "Number of days must be greater than 0")
     private Integer days;
+    
+    @NotNull(message = "Total price is required")
+    @Positive(message = "Total price must be greater than 0")
     private BigDecimal totalPrice;
-    private String name;        // added
-    private String phone; // added
+    
+    @NotBlank(message = "Contact name cannot be empty")
+    private String name;
+    
+    @NotBlank(message = "Phone number cannot be empty")
+    @Pattern(regexp = "^\\+?[0-9]{10,15}$", message = "Invalid phone number format")
+    private String phone;
 
     // Getters and Setters
     public Long getBookingId() { return bookingId; }
