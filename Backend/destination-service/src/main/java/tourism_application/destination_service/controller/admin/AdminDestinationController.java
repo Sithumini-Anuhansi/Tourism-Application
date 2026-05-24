@@ -4,6 +4,7 @@ import tourism_application.destination_service.model.Destination;
 import tourism_application.destination_service.repository.DestinationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import jakarta.validation.Valid;
 
 import java.util.List;
 

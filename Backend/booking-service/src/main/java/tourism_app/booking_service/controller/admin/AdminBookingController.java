@@ -4,6 +4,7 @@ import tourism_app.booking_service.model.Booking;
 import tourism_app.booking_service.repository.BookingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import jakarta.validation.Valid;
 
 import java.util.List;
 
