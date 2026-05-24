@@ -75,6 +75,18 @@ services:
     depends_on:
       - mysql
 
+  api-gateway:
+    build: ./Backend/api-gateway
+
+    ports:
+      - "8080:8080"
+
+    depends_on:
+      - auth-service
+      - booking-service
+      - destination-service
+      - packages-service
+
   frontend:
     build: ./Frontend
 
@@ -82,10 +94,7 @@ services:
       - "3000:80"
 
     depends_on:
-      - auth-service
-      - booking-service
-      - destination-service
-      - packages-service
+      - api-gateway
 
 volumes:
   mysql_data:

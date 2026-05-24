@@ -10,7 +10,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/packages")
-@CrossOrigin
 public class PackageController {
     private final PackageService packageService;
     private final PackageOfferService offerService;

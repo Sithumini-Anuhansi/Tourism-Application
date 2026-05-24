@@ -8,7 +8,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/packages")
-@CrossOrigin
 public class PackageItineraryController {
     private final PackageItineraryService itineraryService;
 

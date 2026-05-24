@@ -8,7 +8,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/admin/packages")
-@CrossOrigin
 public class AdminPackageItineraryController {
 
     private final PackageItineraryService itineraryService;

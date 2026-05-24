@@ -12,7 +12,6 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/destinations")
-@CrossOrigin(origins = "http://localhost:3000")
 public class DestinationController
 {
     private final DestinationService service;
