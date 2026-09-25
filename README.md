@@ -175,3 +175,20 @@ npm test
 - If ports are already in use, stop the conflicting services or change the port mappings in `docker-compose.yml`.
 - If MySQL fails to start, check that `3306` is free and verify the root password matches the `.env` file.
 - If backend services cannot connect to MySQL, ensure `docker compose up` started the `mysql` service first and that the database containers have network access.
+
+---
+
+## Author
+
+**Sithumini Anuhansi**
+
+Software Engineering Undergraduate (NIBM)
+
+[![Email](https://img.shields.io/badge/Email-D14836?style=flat&logo=gmail&logoColor=white)](mailto:anuhansisithumini@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sithumini-anuhansi-5b32a8334)
+
+---
+
+<div align="right">
+<img src="https://visitor-badge.laobi.icu/badge?page_id=Sithumini-Anuhansi.Tourism-Application&left_text=Views"/>
+</div>
