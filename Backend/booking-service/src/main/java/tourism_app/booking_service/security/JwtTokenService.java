@@ -20,11 +20,13 @@ public class JwtTokenService {
                     .build()
                     .verify(token);
             String role = jwt.getClaim("role").asString();
-            return Optional.of(new TokenUser(jwt.getSubject(), role != null ? role : "USER"));
+            Long userId = jwt.getClaim("userId").asLong();
+            if (userId == null) return Optional.empty();
+            return Optional.of(new TokenUser(jwt.getSubject(), role != null ? role : "USER", userId));
         } catch (Exception e) {
             return Optional.empty();
         }
     }
 
-    public record TokenUser(String email, String role) {}
+    public record TokenUser(String email, String role, Long userId) {}
 }

@@ -1,4 +1,4 @@
-package main.java.com.travelbook.gateway;
+package com.travelbook.gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

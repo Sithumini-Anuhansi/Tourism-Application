@@ -34,7 +34,7 @@ This repository contains a multi-module application with the following component
 - `8083` – Destination service
 - `8084` – Packages service
 - `3000` – Frontend served by Nginx via Docker
-- `3306` – MySQL database
+- `3307` – MySQL database on the host in the development Compose file (container port `3306`)
 
 ## Getting Started
 
@@ -71,14 +71,16 @@ docker compose -f docker-compose.prod.yml up --build
 
 ### Environment
 
-The root `.env` file contains application secrets used by Docker Compose:
+The root `.env` file contains the database and JWT secrets used by Docker Compose. Copy `.env.example` to `.env` and set strong values before starting the services. Do not commit `.env`.
 
 ```env
-MYSQL_ROOT_PASSWORD=VERY_STRONG_PASSWORD
-JWT_SECRET=VERY_LONG_RANDOM_SECRET
+MYSQL_ROOT_PASSWORD=replace-with-a-strong-database-password
+JWT_SECRET=replace-with-a-long-random-jwt-secret
+CORS_ALLOWED_ORIGINS=https://your-frontend.example.com
+REACT_APP_API_URL=https://api.example.com
 ```
 
-Update these values for your environment before running production deployments.
+For `docker-compose.prod.yml`, also set `CORS_ALLOWED_ORIGINS` to the deployed frontend origin and `REACT_APP_API_URL` to the public API gateway URL. The frontend API URL is embedded when the Docker image is built.
 
 ## Local Development
 

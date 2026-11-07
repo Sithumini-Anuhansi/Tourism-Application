@@ -44,7 +44,7 @@ public class AuthController
         user.setRole("USER");
 
         User saved = repo.save(user);
-        String token = jwtUtil.generateToken(saved.getEmail(), saved.getRole());
+        String token = jwtUtil.generateToken(saved.getEmail(), saved.getRole(), saved.getId());
         return ResponseEntity.ok(Map.of(
                 "token", token,
                 "userId", saved.getId(),
@@ -60,7 +60,7 @@ public class AuthController
 
         return repo.findByEmail(email).map(u -> {
             if (encoder.matches(password, u.getPasswordHash())) {
-                String token = jwtUtil.generateToken(u.getEmail(), u.getRole());
+                String token = jwtUtil.generateToken(u.getEmail(), u.getRole(), u.getId());
                 return ResponseEntity.ok(Map.of(
                         "token", token,
                         "userId", u.getId(),

@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { getBookingsByUserId, getBookingsByPhone, deleteBooking } from "../../api/bookingsApi";
+import { getBookingsByUserId, deleteBooking } from "../../api/bookingsApi";
 import { getUserId, isLoggedIn } from "../../utils/auth";
 import "./myBookings.css";
 
 const MyBookings = () => {
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [phoneLookup, setPhoneLookup] = useState("");
   const history = useHistory();
   const userId = getUserId();
 
@@ -31,19 +30,6 @@ const MyBookings = () => {
     loadBookings();
   }, [userId]);
 
-  const handlePhoneSearch = async () => {
-    if (!phoneLookup.trim()) return;
-    setLoading(true);
-    try {
-      const data = await getBookingsByPhone(phoneLookup.trim());
-      setBookings(data);
-    } catch {
-      alert("Could not find bookings for that phone number.");
-    } finally {
-      setLoading(false);
-    }
-  };
-
   const handleDelete = (id) => {
     if (!window.confirm("Cancel this booking?")) return;
     deleteBooking(id)
@@ -66,18 +52,7 @@ const MyBookings = () => {
 
       {!isLoggedIn() && (
         <div className="my-bookings-guest">
-          <p>
-            <Link to="/login">Sign in</Link> to see bookings linked to your account, or search by phone:
-          </p>
-          <input
-            type="text"
-            placeholder="Phone number used when booking"
-            value={phoneLookup}
-            onChange={(e) => setPhoneLookup(e.target.value)}
-          />
-          <button type="button" onClick={handlePhoneSearch}>
-            Find bookings
-          </button>
+          <p><Link to="/login">Sign in</Link> to view or manage bookings linked to your account.</p>
         </div>
       )}
 

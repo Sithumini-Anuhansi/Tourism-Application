@@ -27,7 +27,9 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
-                        .requestMatchers("/bookings/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/bookings").permitAll()
+                        .requestMatchers("/bookings/phone/**").hasRole("ADMIN")
+                        .requestMatchers("/bookings/**").authenticated()
                         .anyRequest().permitAll()
                 )
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
