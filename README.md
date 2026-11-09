@@ -2,7 +2,7 @@
 
 ![Logo](Frontend/public/travelbook.png)
 
-A microservices-based tourism booking platform built with Spring Boot, Spring Cloud Gateway, React, MySQL, Docker, and Docker Compose.
+TravelBook is a microservices-based tourism booking platform built with Spring Boot, Spring Cloud Gateway, React, MySQL, Docker, and Docker Compose.
 
 ## Architecture
 
